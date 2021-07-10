@@ -10,7 +10,7 @@ class TestHello(unittest.TestCase):
     def test_hello(self):
         rv = self.app.get('/')
         self.assertEqual(rv.status, '200 OK')
-        self.assertIn(b'Hello World, again! I have been seen', rv.data)
+        self.assertIn(b'Hello World! I have been seen', rv.data)
 
 if __name__ == '__main__':
     unittest.main()
