@@ -10,7 +10,7 @@ echo "Logging in..."
 docker login -u daifukusensei -p $PASS
 
 echo "Tagging image..."
-docker tag $IMAGE:$BUILD_TAG daifukusensei/$IMAGE:$BUILD_TAG
+docker tag $IMAGE:$BUILD_NUMBER daifukusensei/$IMAGE:$BUILD_NUMBER
 
 echo "Pushing image..."
-docker push daifukusensei/$IMAGE:$BUILD_TAG
+docker push daifukusensei/$IMAGE:$BUILD_NUMBER
