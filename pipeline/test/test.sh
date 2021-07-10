@@ -4,4 +4,4 @@ echo "**************************************"
 echo "********** Testing new code **********"
 echo "**************************************"
 
-docker exec -i web python < test.py
+docker exec -i web python < pipeline/test/test.py
