@@ -6,19 +6,14 @@ pipeline {
   }
 
   stages {
-    stage('Test') {
-      steps {
-        sh 'python ./pipeline/test/test.py'
-      }
-      post {
-        always {
-          junit 'test-reports/*.xml'
-        }
-      }
-    }
     stage('Build') {
       steps {
         sh './pipeline/build/build-image.sh'
+      }
+    }
+    stage('Test') {
+      steps {
+        sh './pipeline/test/test.sh'
       }
     }
     stage('Push') {
@@ -33,4 +28,3 @@ pipeline {
     }
   }
 }
-
