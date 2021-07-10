@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# copy the new src files to the build location
+# copy the new src file(s) to the build and test locations
 cp -r src/* pipeline/build/
+cp src/app.py pipeline/test/
 
 # build a new Docker image
 echo "**************************************"
