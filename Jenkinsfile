@@ -15,9 +15,11 @@ pipeline {
       steps {
         sh './pipeline/test/test.sh'
       }
-      failure {
-        script {
-          error "Failed; aborting"
+      post {      
+        failure {
+          script {
+            error "Failed; aborting"
+          }
         }
       }
     }
