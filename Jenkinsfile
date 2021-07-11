@@ -2,9 +2,9 @@ pipeline {
   agent any
 
   environment {
-    IMAGE = daifukusensei/flask-demo
-    USER = ec2-user
-    HOST = 192.168.100.101
+    IMAGE = 'daifukusensei/flask-demo'
+    USER = 'vagrant'
+    HOST = '192.168.100.101'
     PASS = credentials('DockerHub')
   }
 
