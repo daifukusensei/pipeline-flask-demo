@@ -19,7 +19,7 @@ pipeline {
         sh './pipeline/test/test.sh'
       }
       post {
-        always {junit 'test-reports/*.xml'}
+        always {junit 'pipeline/test/test-reports/*.xml'}
       }
     }
     stage('Push') {
