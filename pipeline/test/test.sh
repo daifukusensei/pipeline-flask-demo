@@ -14,8 +14,8 @@ RCODE=$?
 # copy test results from container to build server
 docker cp web:/code/test-reports pipeline/test/
 
-# bring down containers
-docker-compose -f src/docker-compose.yml down
+# bring down containers and remove associated image(s) from build server
+docker-compose -f src/docker-compose.yml down --rmi all
 
 # exit with return code from completed tests
 exit $RCODE
