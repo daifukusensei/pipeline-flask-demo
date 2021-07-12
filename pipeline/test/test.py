@@ -9,7 +9,7 @@ class TestHello(unittest.TestCase):
 
     def test_status(self):
         rv = self.app.get('/')
-        self.assertEqual(rv.status, '201 OK')
+        self.assertEqual(rv.status, '200 OK')
 
     def test_output(self):
         rv = self.app.get('/')
