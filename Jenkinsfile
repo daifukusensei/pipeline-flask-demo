@@ -18,6 +18,9 @@ pipeline {
       steps {
         sh './pipeline/test/test.sh'
       }
+      post {
+        always {junit 'test-reports/*.xml'}
+      }
     }
     stage('Push') {
       steps {
