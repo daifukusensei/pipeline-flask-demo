@@ -1,5 +1,4 @@
 import unittest
-import xmlrunner
 from app import app
 from redis import Redis
 
@@ -19,5 +18,6 @@ class TestHello(unittest.TestCase):
         self.assertEqual(rv.data.decode('utf-8'), 'Hello World! I have been seen {} times.\n'.format(count))
 
 if __name__ == '__main__':
+    import xmlrunner
     runner = xmlrunner.XMLTestRunner(output='test-reports')
     unittest.main(testRunner=runner)
