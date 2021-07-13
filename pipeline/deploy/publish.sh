@@ -8,5 +8,5 @@ echo "**************************************"
 export IMAGE=$(sed -n '1p' /tmp/.auth)
 export BUILD_NUMBER=$(sed -n '2p' /tmp/.auth)
 
-# pull docker image and docker-compose start
+echo "Building and starting Docker containers on target host..."
 cd ~ && docker pull $IMAGE:$BUILD_NUMBER && docker-compose up -d
