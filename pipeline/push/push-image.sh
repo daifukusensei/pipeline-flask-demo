@@ -11,4 +11,4 @@ echo "Pushing image..."
 docker push $IMAGE:$BUILD_NUMBER
 
 echo "Removing image(s) from build server..."
-docker-compose -f srcdocker-R
+docker-compose -f src/docker-compose.yml down --rmi all
