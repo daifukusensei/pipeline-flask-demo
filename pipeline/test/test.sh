@@ -4,8 +4,7 @@ echo "**************************************"
 echo "********** Testing new code **********"
 echo "**************************************"
 
-echo "Building and launching containers on build server..."
-pwd
+echo "Launching containers on build server..."
 docker-compose -f src/docker-compose.yml up -d
 
 echo "Running tests in container..."
