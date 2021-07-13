@@ -19,7 +19,9 @@ pipeline {
         sh './pipeline/test/test.sh'
       }
       post {
-        always {junit 'pipeline/test/test-reports/*.xml'}
+        always {
+          junit 'pipeline/test/test-reports/*.xml'
+        }
       }
     }
     stage('Push') {
@@ -31,6 +33,13 @@ pipeline {
       steps {
         sh './pipeline/deploy/deploy.sh'
       }
+    }
+  }
+  post {
+    failure {
+      mail to: 'skybird6622@gmail.com',
+      subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+      body: "Something is wrong with ${env.BUILD_URL}"
     }
   }
 }
