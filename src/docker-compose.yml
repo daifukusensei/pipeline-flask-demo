@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    image: "$IMAGE:latest"
+    image: "$IMAGE:$BUILD_NUMBER"
     container_name: "web"
     build: .
     ports:
