@@ -5,7 +5,7 @@ pipeline {
     IMAGE = 'daifukusensei/flask-demo'
     USER = 'vagrant'
     HOST = '192.168.100.101'
-    PASS = credentials('DockerHub')
+    DOCKERHUB = credentials('DockerHub')
   }
 
   stages {
@@ -26,14 +26,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        script {
-          docker.withRegistry('', 'DockerHub') {
-            def newIMAGE = "${env.IMAGE}"
-            newIMAGE.push()
-            newIMAGE.push("latest")
-          }
-        }
-        sh 'docker-compose -f src/docker-compose.yml down --rmi all'
+        sh './pipeline/push/push-image.sh'
       }
     }
     stage('Deploy') {
