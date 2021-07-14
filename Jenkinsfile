@@ -26,7 +26,13 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh './pipeline/push/push-image.sh'
+        script {
+          docker.withRegistry($IMAGE, 'DockerHub') {
+            IMAGE.push()
+            IMAGE.push("latest")
+          }
+        }
+        sh 'docker-compose -f src/docker-compose.yml down --rmi all'
       }
     }
     stage('Deploy') {
