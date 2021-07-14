@@ -4,8 +4,10 @@ echo "**************************************"
 echo "* Pushing Docker image to Docker Hub *"
 echo "**************************************"
 
+echo "Tagging image as latest..."
+docker tag $IMAGE:Build-$BUILD_NUMBER $IMAGE:latest
+
 echo "Logging in to Docker Hub..."
-#docker login -u daifukusensei -p $PASS
 docker login -u $DOCKERHUB_USR -p $DOCKERHUB_PSW
 
 echo "Pushing image..."
