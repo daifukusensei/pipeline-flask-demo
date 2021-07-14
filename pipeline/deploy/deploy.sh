@@ -8,7 +8,7 @@ echo "Generating parameters..."
 echo $IMAGE > pipeline/deploy/.vars
 echo $BUILD_NUMBER >> pipeline/deploy/.vars
 
-echo "Copy deployment files to $USER@$HOST..."
+echo "Copying deployment files to $USER@$HOST..."
 scp pipeline/deploy/.vars $USER@$HOST:~
 scp src/docker-compose.yml $USER@$HOST:~
 scp pipeline/deploy/publish.sh $USER@$HOST:~
