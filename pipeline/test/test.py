@@ -14,9 +14,9 @@ class TestFlaskDemo(unittest.TestCase):
 
     def test_output(self):
         rv = self.app.get('/')
-        redis = Redis(host='redis', port=6380)
+        redis = Redis(host='redis', port=6379)
         count = redis.get('hits').decode('utf-8')
-        self.assertEqual(rv.data.decode('utf-8'), 'Hello again, World! I have been seen {} times.\n'.format(count))
+        self.assertEqual(rv.data.decode('utf-8'), 'Hello World! I have been seen {} times.\n'.format(count))
 
 if __name__ == '__main__':
     runner = xmlrunner.XMLTestRunner(output='test-reports')
