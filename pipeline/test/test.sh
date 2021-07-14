@@ -11,7 +11,7 @@ echo "Running tests in container..."
 docker exec -i web python < pipeline/test/test.py
 RCODE=$?
 
-echo "Copy test results from container to build server..."
+echo "Copying test results from container to build server..."
 docker cp web:/code/test-reports pipeline/test/
 
 echo "Stopping containers..."
