@@ -27,7 +27,7 @@ pipeline {
     stage('Push') {
       steps {
         script {
-          docker.withRegistry($IMAGE, 'DockerHub') {
+          docker.withRegistry('', 'DockerHub') {
             IMAGE.push()
             IMAGE.push("latest")
           }
