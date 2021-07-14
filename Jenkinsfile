@@ -28,7 +28,7 @@ pipeline {
       steps {
         script {
           docker.withRegistry('', 'DockerHub') {
-            def newIMAGE = $IMAGE
+            def newIMAGE = "${env.IMAGE}"
             newIMAGE.push()
             newIMAGE.push("latest")
           }
