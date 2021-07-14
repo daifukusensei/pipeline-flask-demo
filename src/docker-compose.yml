@@ -5,7 +5,12 @@ services:
     container_name: "web"
     build: .
     ports:
-     - "80:80"
+      - "80:80"
   redis:
     image: "redis:alpine"
     container_name: "db"
+    command: --port 6389
+    ports:
+      - "6389:6389"
+    expose:
+      - "6389"
