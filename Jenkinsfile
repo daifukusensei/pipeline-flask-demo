@@ -28,8 +28,9 @@ pipeline {
       steps {
         script {
           docker.withRegistry('', 'DockerHub') {
-            IMAGE.push()
-            IMAGE.push("latest")
+            def newIMAGE = $IMAGE
+            newIMAGE.push()
+            newIMAGE.push("latest")
           }
         }
         sh 'docker-compose -f src/docker-compose.yml down --rmi all'
