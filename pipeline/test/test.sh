@@ -15,7 +15,12 @@ echo "Copying test results from container to build server..."
 docker cp web:/code/test-reports pipeline/test/
 
 echo "Stopping containers..."
-docker-compose -f src/docker-compose.yml down
+if [ $RCODE -eq 0 ]; then
+  docker-compose -f src/docker-compose.yml down
+else
+  echo "Removing image(s) from build server..."
+  docker-compose -f src/docker-compose.yml down --rmi all
+fi
 
 # exit with return code from completed tests
 exit $RCODE
