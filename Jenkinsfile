@@ -4,7 +4,7 @@ pipeline {
   environment {
     IMAGE = 'daifukusensei/flask-demo'
     USER = 'ec2-user'
-    HOST = 'ec2-50-19-213-27.compute-1.amazonaws.com'
+    HOST = 'ec2-184-72-143-252.compute-1.amazonaws.com'
     DOCKERHUB = credentials('DockerHub')
   }
 
